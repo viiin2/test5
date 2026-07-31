@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <!-- 1. 기본 정보 (required) -->
+      <label for="name">이름:</label>
+      <input type="text" id="name" name="name" placeholder="이름" required />
+      <br />
+
+      <label for="email">이메일:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="이메일"
+        required
+      />
+      <br />
+
+      <label for="password">비밀번호:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="비밀번호"
+        required
+      />
+      <br />
+
+      <!-- 2. 생년월일 -->
+      <label for="birthday">생년월일:</label>
+      <input type="date" id="birthday" name="birthday" />
+      <br />
+
+      <!-- 3. 소속 (select) -->
+      <label for="dept">소속:</label>
+      <select id="dept" name="dept">
+        <option value="">-- 선택하세요 --</option>
+        <option value="d1">부서A</option>
+        <option value="d2">부서B</option>
+        <option value="d3">부서C</option>
+      </select>
+      <br />
+
+      <!-- 4. 역할 (radio 3개 - 같은 name으로 그룹화) -->
+      <p>역할:</p>
+      <label><input type="radio" name="role" value="admin" /> 운영자</label>
+      <label><input type="radio" name="role" value="user" /> 일반 사용자</label>
+      <label><input type="radio" name="role" value="guest" /> 게스트</label>
+      <br />
+
+      <!-- 5. 관심 기능 (checkbox 3개) -->
+      <p>관심 기능:</p>
+      <label
+        ><input type="checkbox" name="feat" value="f1" checked /> 기능1</label
+      >
+      <label><input type="checkbox" name="feat" value="f2" /> 기능2</label>
+      <label><input type="checkbox" name="feat" value="f3" /> 기능3</label>
+      <br />
+
+      <!-- 6. 비고 (textarea) + 버튼 2개 -->
+      <p><label for="memo">비고:</label></p>
+      <textarea
+        id="memo"
+        name="memo"
+        rows="4"
+        cols="30"
+        placeholder="비고를 입력하세요."
+      ></textarea>
+      <br /><br />
+
+      <button type="submit">등록</button>
+      <button type="reset">취소</button>
+    </form>
+  </body>
+</html>
