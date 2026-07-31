@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제품 목록 페이지</title>
+  </head>
+  <body>
+    <!-- Step 1: 상단 nav (앵커 링크 목차) -->
+    <nav>
+      <ul>
+        <li><a href="#item1">텀블러</a></li>
+        <li><a href="#item2">머그컵</a></li>
+        <li><a href="#item3">글라스잔</a></li>
+      </ul>
+    </nav>
+
+    <hr />
+
+    <!-- Step 2: 카드 3개 (각 카드에 id 지정) -->
+    <main>
+      <!-- 카드 1 -->
+      <div id="item1">
+        <img
+          src="https://www.sdpc.co.kr/images/products/tumblers-700x700.jpg"
+          alt="텀블러"
+          width="200"
+          height="300"
+        />
+        <h3>텀블러</h3>
+        <p>온도가 보존되는 텀블러입니다.</p>
+        <!-- 카드 내 필수 링크! -->
+        <a href="https://example.com/tumbler" target="_blank">상세보기</a>
+      </div>
+
+      <hr />
+
+      <!-- 카드 2 -->
+      <div id="item2">
+        <img
+          src="https://m.mugtalk.com/web/product/big/54_shop1_502458.jpg"
+          alt="머그컵"
+          width="200"
+          height="300"
+        />
+        <h3>머그컵</h3>
+        <p>대용량으로 담을 수 있는 머그컵입니다.</p>
+        <a href="https://example.com/mug" target="_blank">상세보기</a>
+      </div>
+
+      <hr />
+
+      <!-- 카드 3 -->
+      <div id="item3">
+        <img
+          src="https://m.dish114.com/web/product/medium/202307/6336fc82c255383071a3a493c562aa99.jpg"
+          alt="글라스잔"
+          width="200"
+          height="300"
+        />
+        <h3>글라스잔</h3>
+        <p>예쁜 글라스잔입니다.</p>
+        <a href="https://example.com/glass" target="_blank">상세보기</a>
+      </div>
+    </main>
+
+    <hr />
+
+    <!-- Step 3: 하단 외부 링크 모음 (새 탭으로 열기) -->
+    <footer>
+      <h3>관련 링크 모음</h3>
+      <ul>
+        <li><a href="https://naver.com" target="_blank">네이버 방문하기</a></li>
+        <li><a href="https://google.com" target="_blank">구글 방문하기</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
