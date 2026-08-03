@@ -1,0 +1,12 @@
+/* main.css */
+@import url("import-style.css"); /* 맨 위에 작성해야 작동함! */
+
+/* <p> 태그용 링크 스타일도 여기에 작성 */
+p {
+  background-color: red;
+  color: white;
+}
+h3 {
+  background-color: blue; /* 외부 파일 스타일 */
+  color: yellow;
+}
