@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 상속 실습</title>
+    <style>
+      /* 1. 부모(.container): font-family와 color 설정 (상속 속성) */
+      .container {
+        font-family: Georgia, serif;
+        color: #2c3e50;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+
+      /* 2. 부모 요소(.parent): background 설정 (비상속 속성) */
+      .parent {
+        background: #e8f4fd;
+        padding: 15px;
+        margin-top: 10px;
+      }
+
+      /* 3. 자식 요소(.child): inherit으로 background 강제 상속 */
+      .child {
+        background: inherit; /* 부모(.parent)의 배경색을 강제로 받아옴 */
+        padding: 10px;
+        border: 1px dashed #2c3e50;
+      }
+
+      /* 비교용: inherit을 적용하지 않은 기본 자식 요소 */
+      .child-default {
+        padding: 10px;
+        border: 1px dashed #999;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>상속 확인 실습</h2>
+      <p>
+        이 문장은 부모(.container)의 font-family(Georgia)와 color(#2c3e50)를
+        상속받았습니다.
+      </p>
+
+      <div class="parent">
+        <p><strong>부모 영역 (.parent)</strong> - 배경색: 하늘색(#e8f4fd)</p>
+
+        <div class="child">
+          <strong>자식 영역 1 (.child)</strong> -
+          <code>background: inherit;</code> 적용으로 부모의 배경색을 강제
+          상속받음
+        </div>
+
+        <div class="child-default">
+          <strong>자식 영역 2 (.child-default)</strong> - 배경색 상속 안 됨
+          (투명 배경)
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

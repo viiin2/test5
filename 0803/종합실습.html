@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form {
+        width: 400px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+      h3:hover {
+        background-color: black;
+        color: white;
+      }
+      textarea:focus {
+        background-color: rgb(231, 203, 203);
+      }
+      input[type=":checkbox"]:checked + label {
+        background-color: yellow;
+      }
+      form button {
+        float: right;
+        padding: 5px 15px;
+        background-color: #f96666;
+        color: white;
+        font-size: 17px;
+        border-radius: 10px;
+        border: none;
+      }
+      button:active {
+        background-color: #d9534f;
+        color: #ffff00;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <h3>건의사항 폼</h3>
+      <label for="feedback">건의사항</label>
+      <br />
+      <textarea id="feedback" placeholder="건의사항" rows="4"></textarea>
+      <br />
+      <input type="checkbox" id="red" />
+      <label for="red">빨강</label>
+      <input type="checkbox" id="blue" />
+      <label for="blue">파랑</label>
+      <input type="checkbox" id="yellow" />
+      <label for="yellow">노랑</label>
+      <button type="submit">제출</button>
+    </form>
+  </body>
+</html>
