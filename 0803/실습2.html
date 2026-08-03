@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 야생의 사자만 빨간색 */
+      p.lion {
+        background-color: red;
+      }
+      /* 사파리안의사자만선택, 배경greenyellow */
+      .zoo ul .lion {
+        background-color: greenyellow;
+      }
+      /* 호랑이만선택, 배경노란색 */
+      #tiger {
+        background-color: yellow;
+      }
+      /*사자를전부선택, 글자sienna 색  */
+      .lion {
+        color: sienna;
+      }
+      /* 동물원안의사자만선택, 폰트굵게 */
+      .zoo .lion {
+        font-weight: bold;
+      }
+      /* ㆍ호랑이뒤의팬더, 배경skyblue */
+      #tiger + li {
+        background-color: skyblue;
+      }
+      /* ㆍ사파리사자뒤의사육사모두, 배경오렌지 */
+      .zoo ul li.lion ~ li {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>복합선택자 사용 연습</h1>
+    <p>동물원에 왔어요</p>
+    <div class="zoo">
+      <ul>
+        <span>여긴 사파리!</span>
+        <li>곰</li>
+        <li id="tiger">호랑이</li>
+        <li>팬더</li>
+        <span class="lion">사자1</span>
+        <li class="lion">사자2</li>
+        <li>사육사 allie</li>
+        <li>사육사 진형</li>
+      </ul>
+      <span class="lion">사파리 밖의 사자</span>
+    </div>
+    <p class="lion">야생의 사자</p>
+  </body>
+</html>

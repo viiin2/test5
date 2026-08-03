@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span.orange {
+        color: orange;
+      }
+    </style>
+    <style>
+      ul > orange {
+        color: "red";
+      }
+
+      div .oragne + li {
+        color: violet;
+      }
+    </style>
+  </head>
+  <!-- 일치선택자 span class 모두 만족할경우 색깔 바뀜. -->
+  <body>
+    <div><span>안녕하세요</span></div>
+    <div>
+      <span class="orange">안녕하세요</span>
+    </div>
+    <div>
+      <p class="orange">p태그입니다</p>
+    </div>
+    <div>
+      <ul>
+        <li>사과</li>
+        <li>딸기</li>
+        <li class="orange">사과</li>
+        <li>망고</li>
+        <li>수박</li>
+      </ul>
+      <div>당근</div>
+      <p>토마토</p>
+      <span class="orange">오렌지</span>
+    </div>
+    <span class="orange">오렌지</span>
+  </body>
+</html>
