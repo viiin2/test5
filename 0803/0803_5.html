@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h3,
+      h4 {
+        color: red;
+      }
+      .cascade {
+        color: gray;
+      }
+      .cascade {
+        color: purple;
+      }
+      .parent-box {
+        color: teal;
+        background-color: lavender;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h3>h3와 h4는</h3>
+      <h4>그룹으로 같은 색</h4>
+      <p class="cascade">gray -> purple : 나중 것이 이김</p>
+      <div class="parent-box">
+        부모 상자 (연보라 배경)
+        <p>자식 - 글자색 teal은 물려받고, 배경은 물려받지 않음</p>
+      </div>
+    </section>
+  </body>
+</html>
