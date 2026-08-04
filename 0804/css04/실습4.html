@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Header 실습</title>
+    <style>
+      /* 기본 스타일 초기화 */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      body {
+        padding: 10px;
+        font-family: sans-serif;
+      }
+
+      /* 헤더 공통 스타일 */
+      .header {
+        display: flex;
+        align-items: center;
+        background-color: #e2e2e2;
+        padding: 5px 5px;
+        margin-bottom: 15px;
+      }
+
+      .menu {
+        display: flex;
+        gap: 15px; /* 메뉴 아이템 간격 */
+      }
+
+      .auth-btn {
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      .header1 {
+        justify-content: space-between;
+      }
+
+      .header2 .menu {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .header3 {
+        justify-content: space-between;
+      }
+
+      .header4 {
+        justify-content: space-between;
+      }
+
+      .header4 .header-left,
+      .header4 .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>실습 4. Flex Header 만들기</h2>
+      <br />
+
+      <!-- Header 1 -->
+      <header class="header header1">
+        <div class="logo"><strong>LOGO</strong></div>
+        <ul class="menu">
+          <li><a href="#">MENU1</a></li>
+          <li><a href="#">MENU2</a></li>
+          <li><a href="#">MENU3</a></li>
+        </ul>
+      </header>
+
+      <!-- Header 2 -->
+      <header class="header header2">
+        <ul class="menu">
+          <li><a href="#">MENU1</a></li>
+          <li><a href="#">MENU2</a></li>
+          <li><a href="#">MENU3</a></li>
+        </ul>
+      </header>
+
+      <!-- Header 3 -->
+      <header class="header header3">
+        <div class="logo"><strong>LOGO</strong></div>
+        <ul class="menu">
+          <li><a href="#">MENU1</a></li>
+          <li><a href="#">MENU2</a></li>
+          <li><a href="#">MENU3</a></li>
+        </ul>
+        <button class="auth-btn">LOGIN</button>
+      </header>
+
+      <!-- Header 4 -->
+      <header class="header header4">
+        <div class="header-left">
+          <div class="logo"><strong>LOGO</strong></div>
+          <ul class="menu">
+            <li><a href="#">MENU1</a></li>
+            <li><a href="#">MENU2</a></li>
+            <li><a href="#">MENU3</a></li>
+          </ul>
+        </div>
+        <div class="header-right">
+          <button class="auth-btn">LOGIN</button>
+          <button class="auth-btn">SIGNUP</button>
+        </div>
+      </header>
+    </section>
+  </body>
+</html>
