@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습3 - calc & line-height</title>
+    <style>
+      .square {
+        /* 1. 화면 너비의 1/10 크기로 정사각형 생성 */
+        width: calc(100vw / 10);
+        height: calc(100vw / 10);
+
+        /* 2. 배경색 및 글자 스타일 지정 */
+        background-color: #6c5ce7; /* 보라색 계열 */
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-radius: 12px;
+
+        /* 3. 가로 중앙 정렬 */
+        text-align: center;
+
+        /* 4. 세로 중앙 정렬 (height와 동일한 line-height 설정) */
+        line-height: calc(100vw / 10);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="square">SeSAC</div>
+  </body>
+</html>

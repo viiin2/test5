@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 300px;
+        height: 80px;
+        margin: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      .box1 {
+        border: 3px solid pink;
+      }
+      .box2 {
+        border-style: solid;
+        border-color: aqua;
+        border-width: 2px 5px 8px 12px;
+      }
+      .box3 {
+        border-width: 4px;
+        border-color: beige;
+        border-style: solid dotted dashed double;
+      }
+      .box4 {
+        border-width: 5px;
+        border-style: solid;
+        /* 시계 방향 순서: 위(빨강) 오른쪽(파랑) 아래(노랑) 왼쪽(보라) */
+        border-color: #e74c3c #3498db #f1c40f #9b59b6;
+      }
+      .box5 {
+        border-top: 4px solid #e74c3c; /* 위: 빨간 실선 */
+        border-right: 6px dotted #2ecc71; /* 오른쪽: 초록 점선 */
+        border-bottom: 3px dashed #f1c40f; /* 아래: 노란 파선 */
+        border-left: 8px double #9b59b6; /* 왼쪽: 보라 이중선 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1">1.border 기본 속성</div>
+    <div class="box box2">2. border-width 4방향 변경</div>
+    <div class="box box3">3.border-style 4방향변경</div>
+    <div class="box box4">4. border-color 4방향 변경</div>
+    <div class="box box5">5. border-방향 개별 속성 지정</div>
+  </body>
+</html>

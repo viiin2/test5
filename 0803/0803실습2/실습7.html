@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습7 - 요소 사라지게 하기</title>
+    <style>
+      /* 공통 기본 박스 스타일 */
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        color: white;
+        font-weight: bold;
+        margin: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s; /* 변화 과정을 부드럽게 확인하기 위함 */
+      }
+
+      /* 1. opacity: 0 (투명도 조절) */
+      .box-opacity:hover {
+        opacity: 0;
+        /* 투명해지기만 할 뿐, 원래 자리는 유지되며 마우스 호버 상태도 계속 유지됨 */
+      }
+
+      /* 2. visibility: hidden (보임 여부) */
+      .box-visibility:hover {
+        visibility: hidden;
+        /* 안 보이게 되고 클릭/호버 이벤트도 안 먹히지만, 원래 공간(자리)은 그대로 차지함 */
+      }
+
+      /* 3. display: none (배치 취소) */
+      .box-display:hover {
+        display: none;
+        /* 요소 자체가 문서 구조상에서 완전히 사라짐 (자리도 안 남음) */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box-opacity">1. opacity: 0</div>
+    <div class="box box-visibility">2. visibility: hidden</div>
+    <div class="box box-display">3. display: none</div>
+  </body>
+</html>
