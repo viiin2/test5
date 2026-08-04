@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flex Header 실습</title>
     <style>
-      /* 기본 스타일 초기화 */
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-      }
-
-      ul {
-        list-style: none;
       }
 
       a {
@@ -26,7 +21,6 @@
         font-family: sans-serif;
       }
 
-      /* 헤더 공통 스타일 */
       .header {
         display: flex;
         align-items: center;
@@ -37,12 +31,7 @@
 
       .menu {
         display: flex;
-        gap: 15px; /* 메뉴 아이템 간격 */
-      }
-
-      .auth-btn {
-        padding: 5px 10px;
-        cursor: pointer;
+        gap: 15px;
       }
 
       .header1 {
@@ -60,6 +49,12 @@
 
       .header4 {
         justify-content: space-between;
+      }
+      .cho {
+        background-color: pink;
+        color: white;
+        margin-bottom: 15px;
+        text-align: center;
       }
 
       .header4 .header-left,
@@ -104,6 +99,8 @@
         </ul>
         <button class="auth-btn">LOGIN</button>
       </header>
+      <!-- 선택 -->
+      <div class="cho">header 4는 선택입니다.</div>
 
       <!-- Header 4 -->
       <header class="header header4">
