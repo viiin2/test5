@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 80px;
+        height: 80px;
+        background-color: lightblue;
+        border: 1px solid black;
+        text-align: center;
+        line-height: 80px;
+      }
+      .s6-parent {
+        position: relative;
+        height: 160px;
+        background-color: rgb(188, 194, 201);
+        border: 1px solid black;
+      }
+      .s6-a {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: pink;
+        z-index: 1;
+      }
+      .s6-b {
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        background-color: beige;
+        z-index: 2;
+      }
+      .s6-c {
+        position: absolute;
+        top: 50px;
+        left: 60px;
+        background-color: lightsalmon;
+        z-index: 3;
+      }
+      .span {
+        position: absolute;
+        top: 50px;
+        left: 60px;
+        height: 120px;
+        background-color: crimson;
+        z-index:;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="s6-parent">
+        <div class="box s6-a">A</div>
+        <div class="box s6-b">B</div>
+        <div class="box s6-c">C</div>
+        <span class="span">span인데크기적용</span>
+      </div>
+    </section>
+  </body>
+</html>

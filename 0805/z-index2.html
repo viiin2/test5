@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        position: relative;
+      }
+      .circle {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid rgb(0, 0, 0);
+      }
+      .c1 {
+        top: 100px;
+        left: 290px;
+        background: #9afaff;
+        z-index: 2;
+      }
+      .c2 {
+        top: 60px;
+        left: 180px;
+        background: #c29aff;
+        z-index: 4;
+      }
+      .c3 {
+        top: 40px;
+        left: 330px;
+        background: #afdfde;
+        z-index: 1;
+      }
+      .c4 {
+        top: 120px;
+        left: 230px;
+        background: #fbfac6;
+        z-index: 3;
+      }
+      .c5 {
+        top: 0;
+        left: 130px;
+        background: #f0c6ed;
+        z-index: 5;
+        position: relative;
+      }
+      .eye2 {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid rgb(0, 0, 0);
+        background-color: white;
+      }
+
+      /* z-index 를 줘서 쌓임 순서를 바꿔봅시다 */
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="parent">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+        <div class="circle c4"></div>
+        <div class="circle c5">
+          <div class="eye2">
+            <div class="eye1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
