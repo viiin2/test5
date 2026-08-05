@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 80px;
+        height: 80px;
+        background-color: lightblue;
+        border: 2px solid black;
+        text-align: center;
+        line-height: 80px;
+      }
+      .s1-box {
+        position: static;
+      }
+      .s2-moved {
+        position: relative;
+        /* top: 20px; */
+        /* left: 40px; */
+        /* bottom: 50px; */
+        /* right: 30px; */
+        background-color: rgb(175, 13, 172);
+      }
+      /* section3 */
+      .s3-parent {
+        position: relative;
+        height: 180px;
+        background-color: lightyellow;
+      }
+      .s3-child {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: yellow;
+      }
+      .s4-fixed {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+      }
+      .s5-scroll {
+        height: 160px;
+        overflow: auto;
+        border: 2px solid black;
+      }
+      .s5-stinky {
+        position: sticky;
+        top: 5px;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 섹션  -->
+    <section>
+      <h2>position: stactic - 기본흐름</h2>
+      <div class="box s1-box">1</div>
+      <div class="box s1-box">2</div>
+      <div class="box s2-moved">2</div>
+    </section>
+    <section>
+      <h2>섹션3</h2>
+      <div class="s3-parent"></div>
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box s3-child">3</div>
+    </section>
+    <section>
+      <h2>섹션4</h2>
+      <p>화면 우하단의 검은 배지를 확인하고, 스크롤해보세요</p>
+      <div class="box s4-fixed">fixed 배지</div>
+    </section>
+    <section>
+      <div class="s5-scroll">
+        <p>스크롤 전 내용</p>
+        <div class="s5-stinky">붙는제목</div>
+        <p>내용</p>
+        <p>내용</p>
+        <p>내용</p>
+        <p>내용</p>
+        <p>내용</p>
+        <p>내용</p>
+        <p>내용</p>
+      </div>
+    </section>
+  </body>
+</html>
