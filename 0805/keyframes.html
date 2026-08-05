@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hint {
+        font-size: 14px;
+        color: #888;
+      }
+      .box {
+        width: 150px;
+        height: 150px;
+        background-color: aliceblue;
+      }
+
+      @keyframes fade {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(30px, -30px);
+        }
+        50% {
+          transform: translate(30px, 0);
+        }
+        75% {
+          transform: translate(0, 0);
+        }
+      }
+
+      .ani-fade {
+        animation-name: fade;
+        animation-duration: 2s;
+        animation-timing-function: ease;
+        animation-delay: 0.2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>section 12. @keyframe from/to</h2>
+      <div class="box ani-fade">fade</div>
+      <div class="hint">새로고침하면 2초동안 서서히 나타납니다ㅎ</div>
+    </section>
+  </body>
+</html>

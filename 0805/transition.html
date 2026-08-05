@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hint {
+        color: aqua;
+        font-size: 14px;
+      }
+      .box {
+        width: 140px;
+        height: 150px;
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .tr-basic {
+        /* transition: background-color 2s ease 0s; */
+        /* transition-property: width; */
+        transition-property: transform;
+        transition-duration: 1s;
+        transition-delay: 1s;
+      }
+      .tr-basic:hover {
+        /* width: 300px; */
+        transform: scale(1.3) rotate(30deg);
+        background-color: red;
+      }
+      .container {
+      }
+      .tf-linear {
+        -o-transition-timing-function: linear;
+      }
+      .tf-ease-in {
+        -o-transition-timing-function: ease-in;
+      }
+      .tf-ease-out {
+        -o-transition-timing-function: ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>section 9.transition hover</h2>
+      <div class="container">
+        <div class="box tf-linear">linrst</div>
+        <div class="box tf-ease-in">ease-in</div>
+        <div class="box ease-out-">ease-out</div>
+      </div>
+
+      <p class="hint">마우스를 올리면 배경색이 0.3초 동안 부드럽게 바뀝니다.</p>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: aliceblue;
+      }
+      .hint {
+        color: #888;
+        font-size: 14px;
+      }
+      .t-move:hover {
+        transform: translate(40px, 20px) scale(1.5) rotate(45deg);
+        /*  ) */
+      }
+      .stage {
+        perspective: 400px;
+      }
+      .t-3d:hover {
+        transform: rotateY(120deg);
+      }
+      .t-back {
+        backface-visibility: hidden;
+      }
+      .t-back:hover {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>세션 1. translate- 이동</h2>
+      <div class="box t-move">이동</div>
+      <p class="hnt">마우스를 올리면 오른쪽 아래로 이동합니디</p>
+    </section>
+    <section>
+      <h2>세션5. 3d회전과 perspective</h2>
+      <div class="stage">
+        <div class="box t-3d"></div>
+        <div class="hint">
+          마우스를 올리면 카드가 문처럼 회전합니다. perspective가 원근감을 만듦
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>세션5. 3d회전과 perspective</h2>
+      <div class="stage">
+        <div class="box t-back">앞면</div>
+        <p class="hint">뒤집히면 뒷면이 숨겨집니다.</p>
+      </div>
+    </section>
+  </body>
+</html>

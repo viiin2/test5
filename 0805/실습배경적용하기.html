@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .lion {
+        height: 500px;
+        width: 800px;
+        background-image: url("https://www.nicepng.com/png/full/317-3179513_21-.png");
+        background-color: lightblue;
+        margin-bottom: 20px;
+      }
+      .li1 {
+        background-size: auto;
+        background-position: left center; /* 수직중앙이 left center인가벼~ */
+        background-repeat: repeat-x;
+      }
+      .li2 {
+        background-size: contain;
+        background-position: 100px 30px;
+        background-repeat: no-repeat;
+      }
+
+      .li3 {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="lion li1"></div>
+      <div class="lion li2"></div>
+      <div class="lion li3"></div>
+    </section>
+  </body>
+</html>
