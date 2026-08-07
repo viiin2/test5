@@ -1,0 +1,38 @@
+//swith
+
+let gradelevel = 2;
+switch (gradelevel) {
+  case 1:
+    console.log("1학년");
+    break;
+  case 2:
+    console.log("2학년");
+    break;
+  case 3:
+    console.log("3학년");
+    break;
+  case 4:
+    console.log("4학년");
+    break;
+  case 5:
+    console.log("5학년");
+    break;
+  default:
+    console.log("알수없는 학년");
+    break;
+}
+
+let inputName = "mike";
+if (inputName === "Mike") {
+  console.log("맞았습니다.");
+} else {
+  console.log("틀렸습니다");
+}
+inputName === "Mike" ? console.log("맞았습니다.") : console.log("틀렸습니다");
+
+const grade = 95 >= 90 ? "합격" : "불합격";
+console.log(grade);
+
+let now = new Date().getHours();
+console.log(now);
+now >= 12 ? console.log("오후입니다.") : console.log("오전입니다.");
