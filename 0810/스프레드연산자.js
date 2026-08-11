@@ -15,3 +15,9 @@ console.log(copy2);
 //
 
 const copy = [...fruits];
+console.log(copy);
+fruits[1] = "당근";
+console.log(copy);
+console.log(fruits);
+
+//스프레드는 본문을 복사한거라 본문을 바꿔도 달라지지xxx
