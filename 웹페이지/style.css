@@ -1,0 +1,736 @@
+/* 기본 초기화 및 폰트 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+body {
+  color: #000;
+  background-color: #fff;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+/* 1. 상단 네비게이션 바 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 100;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.login-btn {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.signup-btn {
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
+/* =========================================
+   네비게이션 드롭다운 (메가 메뉴) 스타일
+   ========================================= */
+
+/* 메뉴 아이템(li)을 기준으로 드롭다운 위치 설정 */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-item {
+  position: relative; /* 드롭다운 메뉴의 위치 기준점이 됩니다 */
+  padding: 20px 0; /* 마우스가 벗어나도 메뉴가 바로 안 꺼지게 여백 확보 */
+}
+
+.nav-item > a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 화살표 애니메이션 */
+.arrow {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover .arrow {
+  transform: rotate(180deg); /* 마우스 올리면 화살표 뒤집기 */
+}
+
+/* 💡 핵심: 메가 메뉴 박스 기본 상태 (숨김) */
+.mega-menu {
+  position: absolute;
+  top: 100%; /* 메뉴 글씨 바로 아래에 딱 붙이기 */
+  left: -50px; /* 위치 살짝 왼쪽으로 당기기 */
+  width: 600px; /* 드롭다운 전체 너비 */
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* 고급스러운 그림자 */
+  border: 1px solid #eaeaea;
+  padding: 30px;
+  display: flex;
+  gap: 40px;
+
+  /* 부드럽게 나타나는 애니메이션 준비 */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px); /* 살짝 아래로 내려가 있음 */
+  transition: all 0.2s ease;
+}
+
+/*  마우스 올렸을 때 (나타남) */
+.nav-item:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* 원래 위치로 올라오며 나타남 */
+}
+
+/* 메가 메뉴 안쪽 글씨 스타일 */
+.menu-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* 3단이 동일한 비율을 가지도록 */
+}
+
+.column-title {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+/* 첫 번째 열 굵은 글씨 */
+.main-link {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  transition: color 0.2s;
+}
+.main-link:hover {
+  color: #0077ff; /* 마우스 올리면 파란색 */
+}
+
+/* 두 번째, 세 번째 열 얇은 글씨 */
+.sub-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  transition: color 0.2s;
+}
+.sub-link:hover {
+  color: #0077ff;
+}
+/* 2. 첫 화면 (히어로 섹션) - 플렉스박스 레이아웃 강화 */
+.hero {
+  display: flex;
+  flex-direction: column; /* 세로로 쌓기 */
+  align-items: center; /* 가로 중앙 정렬 */
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+  margin-bottom: 30px;
+  color: #000;
+}
+
+/* 💡 핵심 포인트: 제목 내 알약 모양 */
+.highlight-pill {
+  display: inline-flex; /* 내부의 점과 글씨를 가로로 배치 */
+  align-items: center; /* 세로 중앙 정렬 */
+  background-color: #ebf4fe;
+  padding: 5px 30px 5px 25px;
+  border-radius: 100px;
+  gap: 15px;
+  margin: 0 10px;
+}
+
+.blue-dot {
+  width: 28px;
+  height: 28px;
+  background-color: #0077ff;
+  border-radius: 50%;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 40px;
+  font-weight: 500;
+  max-width: 700px;
+}
+
+/* 💡 핵심 포인트: 버튼 그룹 가로 정렬 */
+.hero-buttons {
+  display: flex; /* 버튼을 가로로 정렬 */
+  gap: 15px; /* 버튼 사이의 간격 */
+  margin-bottom: 60px; /* 이미지와의 간격 */
+}
+
+/* 버튼 공통 스타일 */
+.btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 메인 파란색 버튼 */
+.btn-primary {
+  background-color: #0077ff;
+  color: white;
+}
+
+/* 보조 연한 파란색 버튼 */
+.btn-secondary {
+  background-color: #ebf4fe;
+  color: #0077ff;
+}
+
+/* 3. 중앙 대형 이미지 */
+.hero-image-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+.main-mockup {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaeaea;
+}
+
+/* 4. 탭 메뉴 섹션 (이후 실습용) */
+.features {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.tab-btn {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tab-btn.active {
+  background: #f1f1f1;
+  border-color: #ccc;
+}
+/* =========================================
+   3. AI 기능 섹션 (그리드 레이아웃)
+   ========================================= */
+.ai-features {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  letter-spacing: -0.05em;
+}
+
+/* 💡 핵심 포인트: 바둑판(Grid) 레이아웃 만들기 */
+.feature-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 세로로 2칸 쪼개기 (1:1 비율) */
+  gap: 24px; /* 카드 사이의 간격 */
+}
+
+/* 개별 카드 기본 디자인 */
+.feature-card {
+  background-color: #f7f7f5; /* 노션 특유의 웜그레이 톤 배경 */
+  border-radius: 20px;
+  padding: 40px;
+  text-align: left;
+  text-decoration: none; /* 링크(a태그)의 기본 밑줄 제거 */
+  color: black;
+  position: relative; /* 화살표의 위치 기준점 */
+  overflow: hidden; /* 나중에 이미지가 둥근 모서리 밖으로 안 튀어나오게 */
+  display: flex;
+  flex-direction: column;
+  min-height: 450px; /* 카드의 최소 높이 */
+  transition: transform 0.2s ease; /* 마우스 올렸을 때 애니메이션 준비 */
+}
+
+/* 마우스를 올렸을 때 카드가 살짝 위로 떠오르는 효과 */
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+
+/* 💡 아래쪽 가로로 긴 카드 (두 칸을 모두 차지하게 만들기) */
+.feature-card.full-width {
+  grid-column: span 2;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* 글씨  */
+.card-label {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.card-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+}
+
+.arrow-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.full-width .arrow-icon {
+  position: static;
+  margin-top: 30px;
+}
+
+.full-width .card-text {
+  width: 40%;
+  padding-right: 40px;
+}
+
+.card-image-placeholder {
+  margin-top: auto;
+  background-color: white;
+  border-radius: 12px 12px 0 0;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+  border: 1px dashed #ccc;
+}
+
+.full-width .card-image-placeholder {
+  width: 60%;
+  height: 350px;
+  margin-top: 0;
+  border-radius: 12px 0 0 12px;
+}
+/* 새로 추가할 이미지*/
+
+.card-image {
+  width: 100%;
+  height: auto;
+  margin-top: auto;
+  display: block;
+
+  object-fit: cover;
+  object-position: top;
+}
+
+.full-width .card-image {
+  width: 55%;
+  height: 100%;
+  margin-top: 0;
+  object-position: center;
+}
+/*capture.html */
+
+.detail-page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px 100px;
+}
+
+/* 1. 상단 헤더 영역 */
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.detail-text-box {
+  max-width: 600px;
+}
+
+.detail-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin-bottom: 16px;
+  color: #000;
+}
+
+.detail-desc {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 2. 중앙 대형 이미지 */
+.detail-main-visual {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.main-visual-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+}
+
+.sub-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sub-card {
+  background-color: #f7f7f5;
+  padding: 24px 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sub-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.sub-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+/* 제품 드롭다운 */
+
+.mega-menu.product-menu {
+  width: 850px;
+  flex-direction: column;
+  gap: 20px;
+  left: -150px;
+  padding: 24px;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.product-header .header-label {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 500;
+}
+
+.product-header .header-link {
+  font-size: 0.9rem;
+  color: #0077ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.product-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.product-card {
+  text-decoration: none;
+  padding: 24px;
+  border-radius: 12px;
+  color: #333;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.card-blue {
+  background-color: #f4f9ff;
+}
+.card-pink {
+  background-color: #fff5f4;
+}
+.card-yellow {
+  background-color: #fff8eb;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.product-card h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f7f7f5;
+  padding: 16px 24px;
+  border-radius: 8px;
+}
+
+.footer-item {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.footer-item a {
+  color: #0077ff;
+  text-decoration: none;
+}
+.footer-item a:hover {
+  text-decoration: underline;
+}
+/* 
+   4. 고객 리뷰 섹션 스타일 
+   */
+
+.testimonials-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+/* 개별 카드 컨테이너 */
+.testimonial-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+}
+
+.testimonial-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* 하단 통계 배너 */
+
+/*무한 스크롤 통계 배너 애니메이션*/
+
+.scrolling-banner-container {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #eaeaea;
+  padding: 30px 0;
+  white-space: nowrap;
+}
+
+.scrolling-track {
+  display: flex;
+  width: max-content;
+  gap: 60px;
+  animation: scroll-left 25s linear infinite;
+}
+
+.scrolling-banner-container:hover .scrolling-track {
+  animation-play-state: paused;
+}
+
+.scrolling-track span {
+  color: #999;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* 모바일 반응형 (화면너비768px이하작동)*/
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-right .signup-btn {
+    display: none;
+  }
+
+  h1,
+  .section-title,
+  .detail-title {
+    font-size: 2.2rem !important;
+    word-break: keep-all;
+  }
+
+  .feature-grid,
+  .testimonial-grid,
+  .sub-features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .feature-card.full-width {
+    grid-column: span 1 !important;
+    flex-direction: column !important;
+  }
+
+  .full-width .card-text {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .full-width .card-image {
+    width: 100%;
+    height: auto;
+  }
+
+  \ .detail-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-character {
+    margin-top: 30px;
+  }
+
+  section,
+  .detail-page-container {
+    padding: 50px 20px 80px !important;
+    /* 1. 히어로 섹션(첫 화면) 글씨 크기 조정 */
+    .hero-title {
+      font-size: 2rem !important; /* 화면을 벗어나지 않게 글씨 크기 축소 */
+    }
+
+    .hero-subtitle {
+      font-size: 1rem !important;
+      padding: 0 10px; /* 양옆 여백을 줘서 화면에 딱 붙지 않게 함 */
+    }
+
+    /* 2. 버튼들을 가로 배열에서 세로 배열로 변경 (가장 중요!) */
+    .hero-buttons {
+      flex-direction: column !important; /* 버튼을 위아래로 쌓기 */
+      width: 100%; /* 부모 요소 너비에 맞춤 */
+      padding: 0 20px; /* 양옆 여백 확보 */
+    }
+
+    .hero-buttons .btn {
+      width: 100%; /* 버튼이 모바일 화면 가로로 꽉 차게 만듦 */
+      margin-bottom: 12px; /* 위아래 버튼 사이 간격 */
+    }
+  }
+}

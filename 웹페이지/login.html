@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notion에 로그인</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <!-- 노션 로고 이미지 -->
+      <img src="img/notion.png" alt="Notion 로고" class="login-logo" />
+
+      <h1>나만의 AI 워크스페이스</h1>
+      <p class="subtitle">Notion 계정에 로그인</p>
+
+      <!-- 이메일 폼 -->
+      <div class="input-group">
+        <label>이메일</label>
+        <input type="email" placeholder="이메일 주소를 입력하세요." />
+        <p class="input-hint">
+          조직 이메일을 사용하여 팀원들과 쉽게 협업하세요.
+        </p>
+      </div>
+
+      <button class="continue-btn">계속</button>
+
+      <!-- 중간 선 -->
+      <div class="divider">
+        <span>또는 다음으로 계속하기</span>
+      </div>
+
+      <!-- 1줄: 구글, 챗GPT, 애플 -->
+      <div class="social-grid">
+        <button class="social-btn">
+          <img src="img/google.png" alt="Google" /> Google
+        </button>
+        <button class="social-btn">
+          <img src="img/chatgpt.png" alt="ChatGPT" /> ChatGPT
+        </button>
+        <button class="social-btn">
+          <img src="img/apple.png" alt="Apple" /> Apple
+        </button>
+      </div>
+
+      <!-- 2줄: 마이크로소프트, 패스키 -->
+      <div class="social-grid-2">
+        <button class="social-btn">
+          <img src="img/microsoft.png" alt="Microsoft" /> Microsoft
+        </button>
+        <button class="social-btn">
+          <img src="img/passkey.png" alt="패스키" /> 패스키
+        </button>
+      </div>
+
+      <!-- 3줄: SSO -->
+      <div class="social-grid-1">
+        <button class="social-btn">
+          <img src="img/회사.png" alt="SSO" /> SSO(통합 로그인)
+        </button>
+      </div>
+
+      <!-- 하단 텍스트 -->
+      <p class="footer-links">신규 사용자이신가요? <a href="#">가입하기</a></p>
+      <p class="footer-policy">
+        계속 진행하면 <a href="#">이용약관</a> 및
+        <a href="#">개인정보 보호정책</a><br />을 이해했으며 이에 동의하는
+        것으로 간주됩니다.
+      </p>
+    </div>
+  </body>
+</html>

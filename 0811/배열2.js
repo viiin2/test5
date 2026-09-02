@@ -62,7 +62,6 @@ console.log(first);
 //첫째 
 console.log(queue);
 //출력 :["둘째", "셋째"];
-=
 //splice 중간에 넣기 빼기
 //splice는 우너하는 위치에서 원하는 개수만큼 다룹니다.
 //배열.splice(시작위치, 지울개수, 넣을값들...)

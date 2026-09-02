@@ -57,3 +57,36 @@ console.log(longList[longList.length - 1]);
 //최근에 생긴 더 편한 방법
 console.log(longList.at(-1));
 //6
+//at(-1)은 뒤에서 첫 번재 라는 뜻입니다.
+
+console.log(longList.at(2));
+//3
+
+const menu = ["아메리카노", "라떼", "케이크"];
+
+menu[1] = "카푸치노";
+console.log(menu);
+//const 는 메뉴라는 이름이 다른 배열을 가리키지 못하게 막는것입니다
+// 배열 안의 내용은 바꿀 수 있습니다
+
+//이건 안됩니다.
+menu = ["새배열"];
+//실수 : typeError
+
+menu[5] = "쿠키";
+console.log(menu);
+//중간에 빈자리가 생겨버림. 이렇게 넣지 말고 pusth를 쓰면 됨
+//배열 안에 배열
+const classScoress= [
+    [90, 80, 70], //1모둠 [0]
+    [60, 87, 93]  //2모둠 [1]
+];
+console.log(classScoress[0]);
+//대괄호를 두 번 붙이면 안쪽 값까지 꺼냅니다.
+
+console.log(classScoress[0][0]);
+//90
+
+console.log(classScoress[1][2]);
+//88
+
