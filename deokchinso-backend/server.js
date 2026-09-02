@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = 8080; // 프론트엔드(5173)와 겹치지 않게 8080 포트 사용
+const PORT = 3000; // 프론트엔드(5173)와 겹치지 않게 8080 포트 사용
 
 // 미들웨어 설정
 app.use(cors()); // 프론트엔드에서 오는 요청 허용

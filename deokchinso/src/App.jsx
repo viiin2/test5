@@ -46,7 +46,7 @@ export default function App() {
   // 🌟 2. 백엔드(8080포트)에서 데이터 불러오기 함수
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/posts");
+      const response = await fetch("http://localhost:3000/api/posts");
       const data = await response.json();
       setPosts(data); // 불러온 데이터로 화면 업데이트
     } catch (error) {

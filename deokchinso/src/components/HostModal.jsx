@@ -6,10 +6,10 @@ export default function HostModal({ isOpen, onClose, onSuccess }) {
     title: "",
     location: "",
     date: "",
+    tag: "", // 🌟 메모(태그) 입력 필드 복구!
     author: "덕후유저",
   });
 
-  // 방 개설 완료 상태
   const [isSuccess, setIsSuccess] = useState(false);
 
   if (!isOpen) return null;
@@ -31,14 +31,16 @@ export default function HostModal({ isOpen, onClose, onSuccess }) {
       });
 
       if (response.ok) {
-        setIsSuccess(true); // 완료 화면으로 전환
-        onSuccess(); // 백엔드 데이터 다시 불러오기
+        setIsSuccess(true);
+        onSuccess();
       } else {
         alert("등록에 실패했습니다. 다시 시도해주세요.");
       }
     } catch (error) {
       console.error("통신 에러:", error);
-      alert("서버와 통신할 수 없습니다. 백엔드가 켜져 있는지 확인해주세요!");
+      alert(
+        "서버와 통신할 수 없습니다. 백엔드가 3000번 포트에서 켜져 있는지 확인해주세요!",
+      );
     }
   };
 
@@ -49,6 +51,7 @@ export default function HostModal({ isOpen, onClose, onSuccess }) {
       title: "",
       location: "",
       date: "",
+      tag: "",
       author: "덕후유저",
     });
     onClose();
@@ -57,7 +60,6 @@ export default function HostModal({ isOpen, onClose, onSuccess }) {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        {/* 헤더 */}
         <div className="modal-header">
           <h3>🎙️ 나만의 동행 방 개설하기</h3>
           <button className="close-btn" onClick={handleClose}>
@@ -65,7 +67,6 @@ export default function HostModal({ isOpen, onClose, onSuccess }) {
           </button>
         </div>
 
-        {/* 성공했을 때 보여줄 예쁜 완료 화면 */}
         {isSuccess ? (
           <div style={{ textAlign: "center", padding: "40px 20px" }}>
             <div style={{ fontSize: "48px", marginBottom: "12px" }}>🎉</div>
@@ -91,7 +92,6 @@ export default function HostModal({ isOpen, onClose, onSuccess }) {
             </button>
           </div>
         ) : (
-          /* 평소에 보여주는 입력 폼 (수빈 님 원래 클래스명 적용) */
           <form className="host-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label>장르 카테고리</label>
@@ -144,6 +144,18 @@ export default function HostModal({ isOpen, onClose, onSuccess }) {
                 onChange={handleChange}
                 placeholder="예: 8월 25일 (일)"
                 required
+              />
+            </div>
+
+            {/* 🌟 메모 / 태그 입력 필드 추가 완료 */}
+            <div className="form-group">
+              <label>메모 / 한줄 태그</label>
+              <input
+                type="text"
+                name="tag"
+                value={formData.tag}
+                onChange={handleChange}
+                placeholder="예: 티켓 수령 동행 / 굿즈 줄서기"
               />
             </div>
 
