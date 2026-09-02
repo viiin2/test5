@@ -2,12 +2,13 @@ import React from "react";
 import mainBannerImg from "./mainphoto.png";
 import {
   categories,
-  initialPosts,
+  initialPosts, // 🌟 기존 데이터 다시 부활!
   reviews,
   trendingEvents,
 } from "../data/mockData";
 
 export default function HomeSection({
+  posts, // 백엔드 데이터
   activeCategory,
   setActiveCategory,
   location,
@@ -28,50 +29,55 @@ export default function HomeSection({
   setCurrentCondition,
   setIsSearchModalOpen,
 }) {
-  // 🌟 선택된 카테고리 이름에 따라 initialPosts를 필터링
-  // 🌟 카테고리별 정확한 매칭 필터링 로직 수정
   const selectedCategoryObj = categories.find(
     (cat) => cat.id === activeCategory,
   );
 
-  const filteredPosts = initialPosts.filter((post) => {
+  // 🌟 핵심포인트: 백엔드 데이터(posts)와 기존 데이터(initialPosts)를 하나로 합칩니다!
+  // (백엔드 데이터를 먼저 보여주기 위해 앞에 배치했습니다)
+  const allPosts = [...(posts || []), ...initialPosts];
+
+  // 합쳐진 allPosts를 기준으로 필터링 진행!
+  const filteredPosts = allPosts.filter((post) => {
     if (!selectedCategoryObj) return true;
     const catName = selectedCategoryObj.name;
 
+    // 백엔드의 'genre' 또는 프론트의 'category' 모두 호환되도록 처리
+    const postCategory = post.category || post.genre || "";
+
     if (catName === "K-POP") {
-      return post.category === "K-POP";
+      return postCategory === "K-POP";
     }
     if (catName === "아이돌") {
-      // 아이돌 카테고리는 K-POP 아이돌이나 '아이돌' 태그가 포함된 항목만 정확히 매칭 (애니메이션 제외)
       return (
-        post.category === "아이돌" ||
-        (post.category === "K-POP" && post.title.includes("아이돌"))
+        postCategory === "아이돌" ||
+        (postCategory === "K-POP" && post.title.includes("아이돌"))
       );
     }
     if (catName === "애니메이션") {
-      return post.category === "애니메이션";
+      return postCategory === "애니메이션" || postCategory === "ani";
     }
     if (catName === "만화/웹툰") {
-      return post.category === "만화/웹툰";
+      return postCategory === "만화/웹툰";
     }
     if (catName === "게임") {
-      return post.category === "게임";
+      return postCategory === "게임";
     }
     if (catName === "뮤지컬") {
-      return post.category === "뮤지컬";
+      return postCategory === "뮤지컬";
     }
     if (catName === "코스프레") {
-      return post.category === "코스프레";
+      return postCategory === "코스프레";
     }
     if (catName === "스포츠") {
-      return post.category === "스포츠";
+      return postCategory === "스포츠";
     }
-    return post.category === catName;
+    return postCategory === catName;
   });
 
   return (
     <>
-      {/* 카테고리 탭 (클릭 시 해당 장르로 즉시 필터링되도록 변경) */}
+      {/* 카테고리 탭 */}
       <div className="category-row">
         {categories.map((cat) => (
           <button
@@ -154,7 +160,7 @@ export default function HomeSection({
         </div>
       </section>
 
-      {/* 실시간 인기 모집 (선택한 장르별로 필터링된 결과 노출) */}
+      {/* 실시간 인기 모집 */}
       <section className="section-padding">
         <div className="section-header">
           <div>
@@ -182,27 +188,39 @@ export default function HomeSection({
 
         <div className="card-grid-4">
           {filteredPosts.length > 0 ? (
-            filteredPosts.map((post) => (
+            filteredPosts.map((post, index) => (
               <div
                 className="card"
-                key={post.id}
+                // 합친 배열이라 id가 겹칠 수 있으니 key에 index를 활용해 에러 방지
+                key={`post-${post.id}-${index}`}
                 onClick={() => {
                   setSelectedPost(post);
                   setIsChatModalOpen(true);
                 }}
               >
                 <div className="card-image-wrapper">
-                  <img src={post.img} alt={post.title} className="card-image" />
+                  <img
+                    src={
+                      post.img ||
+                      `https://picsum.photos/seed/${post.id}/300/200`
+                    }
+                    alt={post.title}
+                    className="card-image"
+                  />
                   <span className="status-badge">동행 모집중</span>
                 </div>
                 <div className="card-info">
                   <div className="card-meta">
-                    <span className="category">{post.category}</span>
-                    <span className="rating">⭐ {post.rating}</span>
+                    <span className="category">
+                      {post.category || post.genre || "일반"}
+                    </span>
+                    <span className="rating">⭐ {post.rating || "5.0"}</span>
                   </div>
                   <h4 className="card-title">{post.title}</h4>
                   <p className="card-detail">📅 {post.date}</p>
-                  <p className="card-detail">📍 {post.location}</p>
+                  <p className="card-detail">
+                    📍 {post.location || post.region}
+                  </p>
                   <div className="card-footer">
                     <div
                       className="author-info"
@@ -213,12 +231,12 @@ export default function HomeSection({
                       }}
                     >
                       <img
-                        src={`https://picsum.photos/seed/${post.author}/100/100`}
+                        src={`https://picsum.photos/seed/${post.author || post.id}/100/100`}
                         alt="작성자"
                       />
-                      <span>{post.author}</span>
+                      <span>{post.author || "익명 호스트"}</span>
                     </div>
-                    <span className="card-tag">{post.tag}</span>
+                    <span className="card-tag">{post.tag || "#동행환영"}</span>
                   </div>
                 </div>
               </div>
